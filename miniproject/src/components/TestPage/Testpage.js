@@ -7,7 +7,7 @@ const Testpage = () => {
 
     const startTest = (testType) => {
         // /test/mbti 또는 /test/iq 경로로 이동
-        navigate(`/test/${testType}`);
+        navigate(`/${testType}`);
     };
 
     return (
