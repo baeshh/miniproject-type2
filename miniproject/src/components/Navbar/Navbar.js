@@ -22,6 +22,12 @@ function Navbar({ checkIn }) {
           <li hidden={checkIn ? false : true}>
             <Link to="/logout">로그아웃</Link>
           </li>
+          <li>
+            <Link to="/MyData">내정보</Link>
+          </li>
+          <li>
+            <Link to="/community">커뮤니티</Link>
+          </li>
         </ul>
       </nav>
       <Outlet />
