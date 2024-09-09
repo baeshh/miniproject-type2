@@ -7,6 +7,7 @@ import "./MBTIPage.css";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const tips = {
+
   ENFJ: "사람들과의 협력을 중요시하며, 리더십 역할을 맡는 것을 즐깁니다.",
   INFJ: "직관과 깊은 사고력을 바탕으로 사람들에게 영감을 주는 경향이 있습니다.",
   // 다른 MBTI 유형별 조언 추가 가능
@@ -75,7 +76,7 @@ const MBTIPage = ({ questions }) => {
                 }`}
                 onClick={() => handleAnswer(index, question.type, 2)}
               >
-                매우 좋음
+                매우 그런편
               </button>
               <button
                 className={`answer-button ${
@@ -83,7 +84,7 @@ const MBTIPage = ({ questions }) => {
                 }`}
                 onClick={() => handleAnswer(index, question.type, 1)}
               >
-                좋음
+                그런편
               </button>
               <button
                 className={`answer-button ${
@@ -91,7 +92,7 @@ const MBTIPage = ({ questions }) => {
                 }`}
                 onClick={() => handleAnswer(index, question.type, -1)}
               >
-                싫음
+                아닌편
               </button>
               <button
                 className={`answer-button ${
@@ -99,7 +100,7 @@ const MBTIPage = ({ questions }) => {
                 }`}
                 onClick={() => handleAnswer(index, question.type, -2)}
               >
-                매우 싫음
+                매우 아닌편
               </button>
             </div>
           ))}
