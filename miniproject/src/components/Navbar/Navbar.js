@@ -1,32 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar({ checkIn }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="App">
       <nav className="navbar">
-        <ul>
+        <div className="menu-icon" onClick={toggleMenu}>
+          <div className={isOpen ? "menu-icon-line rotate" : "menu-icon-line"}></div>
+          <div className={isOpen ? "menu-icon-line rotate" : "menu-icon-line"}></div>
+          <div className={isOpen ? "menu-icon-line rotate" : "menu-icon-line"}></div>
+        </div>
+        <ul className={isOpen ? "nav-links open" : "nav-links"}>
           <li>
-            <Link to="/">홈</Link>
+            <Link to="/" onClick={() => setIsOpen(false)}>홈</Link>
           </li>
           <li>
-            <Link to="/team">팀 소개</Link>
+            <Link to="/team" onClick={() => setIsOpen(false)}>팀 소개</Link>
           </li>
           <li>
-            <Link to="/test">테스트</Link>
+            <Link to="/test" onClick={() => setIsOpen(false)}>테스트</Link>
           </li>
           <li hidden={checkIn ? true : false}>
-            <Link to="/login">로그인</Link>
+            <Link to="/login" onClick={() => setIsOpen(false)}>로그인</Link>
           </li>
           <li hidden={checkIn ? false : true}>
-            <Link to="/logout">로그아웃</Link>
+            <Link to="/logout" onClick={() => setIsOpen(false)}>로그아웃</Link>
           </li>
           <li>
-            <Link to="/MyData">내정보</Link>
+            <Link to="/MyData" onClick={() => setIsOpen(false)}>내정보</Link>
           </li>
           <li>
-            <Link to="/community">커뮤니티</Link>
+            <Link to="/community" onClick={() => setIsOpen(false)}>커뮤니티</Link>
           </li>
         </ul>
       </nav>

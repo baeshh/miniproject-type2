@@ -30,6 +30,7 @@ function App() {
     { text: "당신은 즉흥적으로 행동하는 것을 좋아하나요?", type: "JP" },
     { text: "당신은 계획적이고 체계적인 접근을 선호하나요?", type: "JP" },
   ]);
+  
   const [checkIn, setcheckIn] = useState(false);
 
   const login = async (id, password) => {

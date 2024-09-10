@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./MainPage.css";
 
+const logoUrl = "/images/logo5.png"; // 이미지 경로 설정
+
 function MainPage() {
   const [text, setText] = useState("");
   const typingTimeoutRef = useRef(null);
@@ -32,6 +34,8 @@ function MainPage() {
   return (
     <div className="main-page">
       <header className="main-header">
+        {/* 천천히 나타나는 로고 이미지 */}
+        <img src={logoUrl} alt="Logo" className="logo" />
         <h1 className="typing">{text}</h1>
         <h2 className="subtitle">우리는 가능성을 믿습니다.</h2>
       </header>

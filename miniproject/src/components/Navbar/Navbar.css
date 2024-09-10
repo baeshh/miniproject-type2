@@ -1,35 +1,116 @@
-/* Navbar.css */
-
+/* 기본 스타일 */
 .navbar {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  background-color: #2C3E50;
+  padding: 15px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* 네비게이션을 중앙에 정렬 */
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
-.navbar ul {
+.nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: center; /* 가로형으로 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  transition: all 0.3s ease;
 }
 
-.navbar li {
-  margin: 0 15px;
+.nav-links li {
+  margin: 0 15px; /* 링크들 사이 간격 */
 }
 
-.navbar a {
-  color: #fff;
+.nav-links li a {
+  color: #ECF0F1;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: 0.3s ease, color 0.3s ease;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.nav-links li a:hover {
+  background-color: #34495E;
+  border-radius: 5px;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  cursor: pointer;
+}
+
+.menu-icon-line {
+  width: 30px;
+  height: 3px;
+  background-color: #ECF0F1;
+  transition: all 0.3s ease;
+}
+
+/* 애니메이션 */
+.nav-links.open {
+  opacity: 1;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+/* 회전 애니메이션 */
+.menu-icon-line.rotate:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.menu-icon-line.rotate:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon-line.rotate:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* 반응형을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #2C3E50;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .nav-links li a {
+    font-size: 20px;
+  }
+}
+
+/* 데스크탑에서 네비게이션 바 항상 표시 */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+    opacity: 1;
+    max-height: none;
+  }
 }

@@ -18,7 +18,7 @@ const Community = () => {
             const response = await axios.get('https://your-api-url/posts');
             setPosts(response.data);
         } catch (error) {
-            console.error('Error fetching posts:', error);
+            console.error('게시물 가져오기 오류:', error);
         }
     };
 
@@ -39,7 +39,7 @@ const Community = () => {
             setImage(null);
             fetchPosts();
         } catch (error) {
-            console.error('Error posting:', error);
+            console.error('게시물 작성 오류:', error);
         }
     };
 
@@ -55,7 +55,7 @@ const Community = () => {
             setNewComment("");
             fetchPosts();
         } catch (error) {
-            console.error('Error posting comment:', error);
+            console.error('댓글 작성 오류:', error);
         }
     };
 
@@ -64,39 +64,39 @@ const Community = () => {
             await axios.delete(`https://your-api-url/posts/${postId}`);
             fetchPosts();
         } catch (error) {
-            console.error('Error deleting post:', error);
+            console.error('게시물 삭제 오류:', error);
         }
     };
 
     return (
         <div className="community-container">
-            <h1>Community Board</h1>
+            <h1>커뮤니티</h1>
             <div>
                 <input
                     type="text"
                     value={newPost}
                     onChange={(e) => setNewPost(e.target.value)}
-                    placeholder="Write something..."
+                    placeholder="게시물을 작성해보세요..."
                 />
                 <input
                     type="file"
                     onChange={handleImageChange}
                 />
-                <button onClick={handlePostSubmit}>Post</button>
+                <button onClick={handlePostSubmit}>게시</button>
             </div>
             <div className="posts">
                 {posts.map((post, index) => (
                     <div key={index} className="post">
                         <p>{post.content}</p>
-                        {post.image && <img src={post.image} alt="Post" />}
+                        {post.image && <img src={post.image} alt="게시물 이미지" />}
                         <input
                             type="text"
                             value={newComment}
                             onChange={(e) => setNewComment(e.target.value)}
-                            placeholder="Add a comment..."
+                            placeholder="댓글을 작성하세요..."
                         />
-                        <button onClick={() => handleCommentSubmit(post.id)}>Comment</button>
-                        <button onClick={() => handleDeletePost(post.id)}>Delete Post</button>
+                        <button onClick={() => handleCommentSubmit(post.id)}>댓글 작성</button>
+                        <button onClick={() => handleDeletePost(post.id)}>게시물 삭제</button>
                     </div>
                 ))}
             </div>
