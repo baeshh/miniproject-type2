@@ -101,6 +101,7 @@ function TeamPage() {
       {/* 팀원 소개 섹터 */}
       <section className="team-members-section">
   <h2>팀원 소개</h2>
+  <p>팀원을 클릭하시면 정보가 뜹니다.</p>
   <div className="team-content">
     <div className="team-members">
       {teamMembers.map((member, index) => (

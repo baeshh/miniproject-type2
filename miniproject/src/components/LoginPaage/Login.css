@@ -78,7 +78,7 @@
 .loging-page button {
   background-color: #007bff;
   color: white;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .loging-page a {
@@ -86,6 +86,9 @@
   color: white;
   text-decoration: none;
   text-align: center;
+  margin : 10px;
+  
+  
 }
 
 /* 로그인 버튼과 회원가입 버튼이 양옆으로 붙어있도록 */

@@ -1,3 +1,4 @@
+//로그인하면 계정 연동되야함
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';

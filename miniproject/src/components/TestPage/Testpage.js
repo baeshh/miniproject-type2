@@ -1,3 +1,4 @@
+//내정보 페이지의 MBTI랑 연동되야함
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Testpage.css';
